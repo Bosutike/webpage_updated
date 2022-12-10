@@ -1,0 +1,7 @@
+__pycache__
+node_modules
+
+credentials.json
+token.json
+
+CONSTANTS.py

@@ -1,0 +1,4 @@
+URL = ""
+NOTIFY_EMAILS = []
+EMAIL_SUBJECT = ""
+EMAIL_CONTENT = ""
