@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 import CONSTANTS
 import datetime
 
+CONST = {}
+
+CONST = CONSTANTS.ENV_CONST[CONSTANTS.RUN_ENV]
 
 ## ** Script get page **  ##
 def request_website(URL):
@@ -27,23 +30,25 @@ def scraper(website_html):
     return div_destaques
 
 website_page = ""
-website_html = request_website(CONSTANTS.URL)
+website_html = request_website(CONST["URL"])
 website_cache = scraper(website_html)
 
-while True:
-    website_page = ""
-    website_html = request_website(CONSTANTS.URL)
-    website_now = scraper(website_html)
+send_email.gmail_send_message(notify_emails=CONST["NOTIFY_START_EMAILS"], email_subject=CONST["START_EMAIL_SUBJECT"], email_content=CONST["START_EMAIL_CONTENT"])
 
-    if website_cache != website_now:
-        print("Changed!!! Notify!!! - " + str(datetime.datetime.now()))
-        break
+try:
+    while True:
+        website_page = ""
+        website_html = request_website(CONST["URL"])
+        website_now = scraper(website_html)
 
-    print("Not changed - " + str(datetime.datetime.now()))
+        if website_cache == website_now:
+            print("Changed!!! Notify!!! - " + str(datetime.datetime.now()))
+            send_email.gmail_send_message(notify_emails=CONST["NOTIFY_EMAILS"], email_subject=CONST["EMAIL_SUBJECT"], email_content=CONST["EMAIL_CONTENT"])
 
-    website_cache = website_now
+        print("Not changed - " + str(datetime.datetime.now()))
 
-    time.sleep(300)
-
-  
-send_email.gmail_send_message(notify_emails=CONSTANTS.NOTIFY_EMAILS, email_subject=CONSTANTS.EMAIL_SUBJECT, email_content=CONSTANTS.EMAIL_CONTENT)
+        website_cache = website_now
+         
+        time.sleep(300)
+except Exception as err:
+    send_email.gmail_send_message(notify_emails=CONST["ERROR_NOTIFY_EMAILS"], email_subject=CONST["ERROR_EMAIL_SUBJECT"], email_content=CONST["ERROR_EMAIL_CONTENT"] + str(err))

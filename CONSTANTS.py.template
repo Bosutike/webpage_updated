@@ -1,4 +1,28 @@
-URL = ""
-NOTIFY_EMAILS = []
-EMAIL_SUBJECT = ""
-EMAIL_CONTENT = ""
+RUN_ENV = "DEV"
+
+ENV_CONST = {
+    "DEV": {
+        "URL" : "",
+        "NOTIFY_START_EMAILS" : [""],
+        "START_EMAIL_SUBJECT" : "",
+        "START_EMAIL_CONTENT" : "",
+        "ERROR_NOTIFY_EMAILS" : [""],
+        "ERROR_EMAIL_SUBJECT" : "[",
+        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
+        "NOTIFY_EMAILS" : [""],
+        "EMAIL_SUBJECT" : "",
+        "EMAIL_CONTENT" : "",
+    },
+    "PROD": {
+        "URL" : "",
+        "NOTIFY_START_EMAILS" : [""],
+        "START_EMAIL_SUBJECT" : "",
+        "START_EMAIL_CONTENT" : "",
+        "ERROR_NOTIFY_EMAILS" : [""],
+        "ERROR_EMAIL_SUBJECT" : "[",
+        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
+        "NOTIFY_EMAILS" : [""],
+        "EMAIL_SUBJECT" : "",
+        "EMAIL_CONTENT" : "",
+    }
+}
