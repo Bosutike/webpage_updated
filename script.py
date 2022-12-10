@@ -41,7 +41,7 @@ try:
         website_html = request_website(CONST["URL"])
         website_now = scraper(website_html)
 
-        if website_cache == website_now:
+        if website_cache != website_now:
             print("Changed!!! Notify!!! - " + str(datetime.datetime.now()))
             send_email.gmail_send_message(notify_emails=CONST["NOTIFY_EMAILS"], email_subject=CONST["EMAIL_SUBJECT"], email_content=CONST["EMAIL_CONTENT"])
 
