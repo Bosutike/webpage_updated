@@ -49,6 +49,6 @@ try:
 
         website_cache = website_now
          
-        time.sleep(300)
+        time.sleep(CONST["VERIFICATION_INTERVAL"])
 except Exception as err:
     send_email.gmail_send_message(notify_emails=CONST["ERROR_NOTIFY_EMAILS"], email_subject=CONST["ERROR_EMAIL_SUBJECT"], email_content=CONST["ERROR_EMAIL_CONTENT"] + str(err))

@@ -2,27 +2,30 @@ RUN_ENV = "DEV"
 
 ENV_CONST = {
     "DEV": {
+        "VERIFICATION_INTERVAL": "",
         "URL" : "",
         "NOTIFY_START_EMAILS" : [""],
-        "START_EMAIL_SUBJECT" : "",
-        "START_EMAIL_CONTENT" : "",
         "ERROR_NOTIFY_EMAILS" : [""],
-        "ERROR_EMAIL_SUBJECT" : "[",
-        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
         "NOTIFY_EMAILS" : [""],
+        "START_EMAIL_SUBJECT" : "",
+        "ERROR_EMAIL_SUBJECT" : "",
         "EMAIL_SUBJECT" : "",
+        "START_EMAIL_CONTENT" : "",
+        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
         "EMAIL_CONTENT" : "",
     },
     "PROD": {
+        "VERIFICATION_INTERVAL": "",
         "URL" : "",
         "NOTIFY_START_EMAILS" : [""],
-        "START_EMAIL_SUBJECT" : "",
-        "START_EMAIL_CONTENT" : "",
         "ERROR_NOTIFY_EMAILS" : [""],
-        "ERROR_EMAIL_SUBJECT" : "[",
-        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
         "NOTIFY_EMAILS" : [""],
+        "START_EMAIL_SUBJECT" : "",
+        "ERROR_EMAIL_SUBJECT" : "",
         "EMAIL_SUBJECT" : "",
+        "START_EMAIL_CONTENT" : "",
+        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
         "EMAIL_CONTENT" : "",
     }
+    
 }
