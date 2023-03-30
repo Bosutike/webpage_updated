@@ -25,7 +25,7 @@ def request_website(URL):
 def scraper(website_html):
     soup = BeautifulSoup(website_html, "html.parser")
 
-    div_destaques = soup.find("div", {"id": "mdl-layout__content"})
+    div_destaques = soup.find("div", {CONST["FILTER"]["ATTRIBUTE"]: CONST["FILTER"]["VALUE"]})
 
     return div_destaques
 
@@ -33,7 +33,7 @@ website_page = ""
 website_html = request_website(CONST["URL"])
 website_cache = scraper(website_html)
 
-send_email.gmail_send_message(notify_emails=CONST["NOTIFY_START_EMAILS"], email_subject=CONST["START_EMAIL_SUBJECT"], email_content=CONST["START_EMAIL_CONTENT"])
+send_email.gmail_send_message(notify_emails=CONST["MAILING"]["RECIPIENT"]["START"], email_subject=CONST["MAILING"]["SUBJECT"]["START"], email_content=CONST["MAILING"]["CONTENT"]["START"])
 
 try:
     while True:
@@ -43,7 +43,7 @@ try:
 
         if website_cache != website_now:
             print("Changed!!! Notify!!! - " + str(datetime.datetime.now()))
-            send_email.gmail_send_message(notify_emails=CONST["NOTIFY_EMAILS"], email_subject=CONST["EMAIL_SUBJECT"], email_content=CONST["EMAIL_CONTENT"])
+            send_email.gmail_send_message(notify_emails=CONST["MAILING"]["RECIPIENT"]["CHANGED"], email_subject=CONST["MAILING"]["SUBJECT"]["CHANGED"], email_content=CONST["MAILING"]["CONTENT"]["CHANGED"])
 
         print("Not changed - " + str(datetime.datetime.now()))
 
@@ -51,4 +51,5 @@ try:
          
         time.sleep(CONST["VERIFICATION_INTERVAL"])
 except Exception as err:
-    send_email.gmail_send_message(notify_emails=CONST["ERROR_NOTIFY_EMAILS"], email_subject=CONST["ERROR_EMAIL_SUBJECT"], email_content=CONST["ERROR_EMAIL_CONTENT"] + str(err))
+    print(err)
+    send_email.gmail_send_message(notify_emails=CONST["MAILING"]["RECIPIENT"]["ERROR"], email_subject=CONST["MAILING"]["SUBJECT"]["ERROR"], email_content=CONST["MAILING"]["CONTENT"]["ERROR"] + str(err))

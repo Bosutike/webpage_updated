@@ -2,30 +2,54 @@ RUN_ENV = "DEV"
 
 ENV_CONST = {
     "DEV": {
-        "VERIFICATION_INTERVAL": "",
+        "VERIFICATION_INTERVAL": 0, # seconds
         "URL" : "",
-        "NOTIFY_START_EMAILS" : [""],
-        "ERROR_NOTIFY_EMAILS" : [""],
-        "NOTIFY_EMAILS" : [""],
-        "START_EMAIL_SUBJECT" : "",
-        "ERROR_EMAIL_SUBJECT" : "",
-        "EMAIL_SUBJECT" : "",
-        "START_EMAIL_CONTENT" : "",
-        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
-        "EMAIL_CONTENT" : "",
+        "FILTER" : {
+            "ATTRIBUTE": "", # Example: class
+            "VALUE": "" # Example: row
+        },
+        "MAILING": {
+            "RECIPIENT": {
+                "START": [""],
+                "ERROR": [""],
+                "CHANGED": [""]
+            },
+            "SUBJECT": {
+                "START": "",
+                "ERROR": "",
+                "CHANGED": ""
+            },
+            "CONTENT": {
+                "START": "",
+                "ERROR": "", ## + "\n" + err.from.exception
+                "CHANGED": ""
+            }
+        }
     },
     "PROD": {
-        "VERIFICATION_INTERVAL": "",
+        "VERIFICATION_INTERVAL": "", # seconds
         "URL" : "",
-        "NOTIFY_START_EMAILS" : [""],
-        "ERROR_NOTIFY_EMAILS" : [""],
-        "NOTIFY_EMAILS" : [""],
-        "START_EMAIL_SUBJECT" : "",
-        "ERROR_EMAIL_SUBJECT" : "",
-        "EMAIL_SUBJECT" : "",
-        "START_EMAIL_CONTENT" : "",
-        "ERROR_EMAIL_CONTENT" : "", ## + "\n" + err.from.exception
-        "EMAIL_CONTENT" : "",
+        "FILTER" : {
+            "ATTRIBUTE": "", # Example: class
+            "VALUE": "" # Example: row
+        },
+        "MAILING": {
+            "RECIPIENT": {
+                "START": [""],
+                "ERROR": [""],
+                "CHANGED": [""]
+            },
+            "SUBJECT": {
+                "START": "",
+                "ERROR": "",
+                "CHANGED": ""
+            },
+            "CONTENT": {
+                "START": "",
+                "ERROR": "", ## + "\n" + err.from.exception
+                "CHANGED": ""
+            }
+        }
     }
     
 }

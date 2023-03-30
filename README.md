@@ -4,7 +4,7 @@ This repository contains a python script that notifies by email when an website 
 
 It works by requesting an website body and scrapping a specific part which is copared with the cached version.
 
-The scrapping configuration as to be altered directly in the code.
+Scraping a div by attribute is available with configuration.
 
 ## How to use
 
