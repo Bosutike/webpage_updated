@@ -1,4 +1,4 @@
-# Webpage_updated
+# Webpage Updated
 
 This repository contains a python script that notifies by email when an website is updated.
 
